@@ -1,0 +1,32 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+.container{
+  margin: 0 auto;
+  text-align: center;
+}
+h1{
+  text-align: center;
+}
+.filters{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 50px;
+}
+#genre{
+  padding: 5px;
+}
+.movies-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.movie-card {
+  width: 1000px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}

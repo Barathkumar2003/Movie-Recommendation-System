@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Recommendation System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Movie Recommendation System</h1>
+    <div class="filters">
+      <h3>Select Genre:</h3>
+      <select id="genre">
+        <option value="all">All</option>
+        <option value="action">Action</option>
+        <option value="comedy">Comedy</option>
+        <option value="drama">Drama</option>
+      </select>
+    </div>
+    <div id="movies-list" class="movies-list"></div>
+
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+     const moviesList = document.getElementById("movies-list");
+     const genreSelect = document.getElementById("genre");
+
+    const movies = [
+        { title: "The Dark Knight", genre: "action" },
+        { title: "Inception", genre: "action" },
+        { title: "The Hangover", genre: "comedy" },
+        { title: "Superbad", genre: "comedy" },
+        { title: "The Shawnshank Redemption", genre: "drama" },
+        { title: "Forrest Gump", genre: "drama" }     
+    ];
+
+    function displayMovies(genre) {
+        let filteredMovies = movies;
+        if (genre !== "all") {
+            filteredMovies = movies.filter(movie => movie.genre === genre);
+        }
+        moviesList.innerHTML = "";
+
+        filteredMovies.forEach(movie => {
+            const movieCard = document.createElement("div");
+            movieCard.classList.add("movie-card");
+            movieCard.innerHTML = `<h2>${movie.title}</h2><p>Genre: ${movie.genre}</p>`;
+            moviesList.appendChild(movieCard);
+        });
+      }
+
+        genreSelect.addEventListener("change", function() {
+        const selectedGenre = genreSelect.value;
+        displayMovies(selectedGenre);
+    });
+
+    displayMovies("all");
+
+  });
+  </script>
+  
+</body>
+</html>
